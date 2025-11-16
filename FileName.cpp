@@ -143,7 +143,7 @@ int main() {
 	_CrtSetDbgFlag(_CrtSetDbgFlag(_CRTDBG_REPORT_FLAG) | _CRTDBG_LEAK_CHECK_DF);
 
 	SharedMemory m = std::shared_ptr<Memory>();
-	m->GetSelf(m);//cross refalence. not easy destroy.
+	m->GetSelf(m);//cross refalance. not easy destroy.
 	m->Resize(1024);
 
 	auto C = m->MakeChile(16);
