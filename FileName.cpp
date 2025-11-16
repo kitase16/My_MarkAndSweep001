@@ -4,6 +4,8 @@
 #include <vector>
 #include <algorithm>
 
+#include <crtdbg.h>//vc only?
+
 #define interface struct
 
 struct Memory {
@@ -86,6 +88,14 @@ struct Memory {
 			return Sz;
 		}
 
+		const Elem& Front() {
+			return (*Mom)[P];
+		}
+		const Elem& Back() {
+			int A = 0;
+			if (Sz != 0) { A = -1; }
+			return (*Mom)[P+Sz+A];
+		}
 		Elem& operator[](std::intmax_t Idx) {
 			return (*Mom)[P + Idx];
 		}
@@ -129,6 +139,9 @@ protected:
 typedef std::shared_ptr<Memory> SharedMemory;
 
 int main() {
+
+	_CrtSetDbgFlag(_CrtSetDbgFlag(_CRTDBG_REPORT_FLAG) | _CRTDBG_LEAK_CHECK_DF);
+
 	SharedMemory m = std::shared_ptr<Memory>();
 	m->GetSelf(m);//cross refalence. not easy destroy.
 	m->Resize(1024);
@@ -137,6 +150,8 @@ int main() {
 
 
 	m->Kill();
+
+	
 
 	return 0;
 }
