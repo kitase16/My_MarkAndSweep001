@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="My_MarkAndSweep001.vcxproj" />
+  <Project Path="My_MarkAndSweep001.vcxproj" Id="28498de3-94a3-437f-81c3-ffafe3d05c1f" />
 </Solution>

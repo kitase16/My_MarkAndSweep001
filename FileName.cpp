@@ -99,6 +99,9 @@ struct Memory {
 		Elem& operator[](std::intmax_t Idx) {
 			return (*Mom)[P + Idx];
 		}
+		void* Get() {//realtime address changeable. so not hold for far time.
+			return &(*Mom)[P];
+		}
 
 		void Kill() {
 			Mom = std::shared_ptr<Memory>(nullptr);
